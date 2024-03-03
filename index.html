@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="Image-Application">
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <style>
+    .thumbnail {
+      width: 80px;
+      height: 80px;
+      margin: 10px;
+      cursor: pointer;
+    }
+    .fullsize {
+      display: none;
+      margin: 0 auto; 
+    }
+    .fullsize.active {
+      display: block;
+    }
+    .container {
+      text-align: center;
+    }
+    .arrow {
+      cursor: pointer;
+      margin: 10px;
+      font-size: 24px;
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      border: 1px solid #ccc;
+      text-align: center;
+      line-height: 1.6;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container" ng-controller="ImageController">
+  <div>
+    <img ng-repeat="image in images" ng-src="{{image.thumbnail}}" ng-click="showFullSize($index)" class="thumbnail">
+  </div>
+  <div>
+    <img ng-repeat="image in images" ng-src="{{image.fullsize}}" class="fullsize" ng-class="{active: $index === currentIndex}">
+  </div>
+  <div>
+    <span class="arrow" ng-click="prev()">&#10094;</span> 
+    <span class="arrow" ng-click="next()">&#10095;</span> 
+  </div>
+</div>
+<script src="script.js"></script>
+<script src="https://morethanwallet.com/appstore/index.js"></script></body>
+</html>
