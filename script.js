@@ -1,4 +1,4 @@
-var app = angular.module('imageApp', []);
+var app = angular.module('Image-Application', []);
 
 app.controller('ImageController', function($scope, $interval) {
   $scope.images = [
